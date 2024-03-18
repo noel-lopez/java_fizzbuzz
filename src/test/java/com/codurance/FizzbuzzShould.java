@@ -1,23 +1,20 @@
 package com.codurance;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FizzbuzzShould {
-    @Test
-    public void convert_1_to_1() {
-        assertEquals("1", Fizzbuzz.convert(1));
-    }
-
-    @Test
-    public void convert_2_to_2() {
-        assertEquals("2", Fizzbuzz.convert(2));
-    }
-
-    @Test
-    public void convert_4_to_4() {
-        assertEquals("4", Fizzbuzz.convert(4));
+    @ParameterizedTest(name = "{0} into {1}")
+    @CsvSource({
+            "1, 1",
+            "2, 2",
+            "4, 4",
+    })
+    public void convert_non_changing_numbers(int input, String output) {
+        assertEquals(output, Fizzbuzz.convert(input));
     }
 
 }
