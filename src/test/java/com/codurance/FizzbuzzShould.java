@@ -37,19 +37,14 @@ class FizzbuzzShould {
         assertEquals(output, Fizzbuzz.convert(input));
     }
 
-    @Test
-    public void convert_15_into_FizzBuzz() {
-        assertEquals("FizzBuzz", Fizzbuzz.convert(15));
-    }
-
-    @Test
-    public void convert_30_into_FizzBuzz() {
-        assertEquals("FizzBuzz", Fizzbuzz.convert(30));
-    }
-
-    @Test
-    public void convert_45_into_FizzBuzz() {
-        assertEquals("FizzBuzz", Fizzbuzz.convert(45));
+    @ParameterizedTest(name = "{0} into {1}")
+    @CsvSource({
+            "15, FizzBuzz",
+            "30, FizzBuzz",
+            "45, FizzBuzz"
+    })
+    public void convert_multiples_of_3_and_5_into_FizzBuzz(int input, String output) {
+        assertEquals(output, Fizzbuzz.convert(input));
     }
 
 }
