@@ -42,4 +42,9 @@ class FizzbuzzShould {
         assertEquals("FizzBuzz", Fizzbuzz.convert(15));
     }
 
+    @Test
+    public void convert_30_into_FizzBuzz() {
+        assertEquals("FizzBuzz", Fizzbuzz.convert(30));
+    }
+
 }
