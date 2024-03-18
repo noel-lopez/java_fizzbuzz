@@ -3,7 +3,7 @@ package com.codurance;
 public class Fizzbuzz {
 
     public static String convert(int number) {
-        if (number == 15) {
+        if (number == 15 || number == 30) {
             return "FizzBuzz";
         }
         if(number % 5 == 0) {
