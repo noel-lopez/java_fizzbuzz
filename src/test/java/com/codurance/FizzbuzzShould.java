@@ -17,19 +17,14 @@ class FizzbuzzShould {
         assertEquals(output, Fizzbuzz.convert(input));
     }
 
-    @Test
-    public void convert_3_into_Fizz() {
-        assertEquals("Fizz", Fizzbuzz.convert(3));
-    }
-
-    @Test
-    public void convert_6_into_Fizz() {
-        assertEquals("Fizz", Fizzbuzz.convert(6));
-    }
-
-    @Test
-    public void convert_9_into_Fizz() {
-        assertEquals("Fizz", Fizzbuzz.convert(9));
+    @ParameterizedTest(name = "{0} into {1}")
+    @CsvSource({
+            "3, Fizz",
+            "6, Fizz",
+            "9, Fizz"
+    })
+    public void convert_multiples_of_3_into_Fizz(int input, String output) {
+        assertEquals(output, Fizzbuzz.convert(input));
     }
 
 }
